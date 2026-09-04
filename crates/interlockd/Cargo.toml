@@ -1,0 +1,18 @@
+[package]
+name = "interlockd"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "interlockd"
+path = "src/main.rs"
+
+[dependencies]
+interlock-core = { path = "../interlock-core" }
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+blake3.workspace = true
+tokio = { version = "1", features = ["rt", "net", "io-util", "sync", "time", "macros", "signal"] }
+gix = "0.87"
