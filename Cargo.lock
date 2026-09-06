@@ -1847,12 +1847,15 @@ name = "interlock"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "blake3",
  "clap",
  "crossterm",
+ "gix",
  "interlock-core",
  "ratatui",
  "serde",
  "serde_json",
+ "tokio",
 ]
 
 [[package]]
@@ -1864,27 +1867,6 @@ dependencies = [
  "dirs",
  "serde",
  "serde_json",
-]
-
-[[package]]
-name = "interlock-hook"
-version = "0.1.0"
-dependencies = [
- "interlock-core",
- "serde_json",
-]
-
-[[package]]
-name = "interlockd"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "blake3",
- "gix",
- "interlock-core",
- "serde",
- "serde_json",
- "tokio",
 ]
 
 [[package]]

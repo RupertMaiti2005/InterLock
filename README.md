@@ -2,8 +2,23 @@
 
 Coordination for multiple coding agents working in **one shared worktree**. Works with Claude Code, Codex CLI, Gemini CLI, GitHub Copilot CLI, and Cursor from a single install.
 
+**Install** (macOS, Linux, WSL):
+
 ```
-npm i -g interlock          # coming with the first release; today: cargo build --release
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/RupertMaiti2005/InterLock/releases/latest/download/interlock-installer.sh | sh
+```
+
+**Install** (Windows PowerShell):
+
+```
+powershell -ExecutionPolicy Bypass -c "irm https://github.com/RupertMaiti2005/InterLock/releases/latest/download/interlock-installer.ps1 | iex"
+```
+
+Both put `interlock`, `interlockd`, and `interlock-hook` in `~/.interlock/bin` and add it to your PATH. Prebuilt binaries are on the [releases page](https://github.com/RupertMaiti2005/InterLock/releases); from source, `cargo install --path crates/interlock`.
+
+**Then**:
+
+```
 cd my-repo && interlock init
 interlock                   # live dashboard
 ```

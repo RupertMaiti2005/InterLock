@@ -1,18 +1,34 @@
 [package]
 name = "interlock"
+description = "Coordinate multiple coding agents in one shared worktree: blocking file leases, stale-read detection, snapshots, live dashboard"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+repository.workspace = true
 
+# CLI + dashboard
 [[bin]]
 name = "interlock"
 path = "src/main.rs"
+
+# Per-repo coordination daemon, auto-started by the hook shim
+[[bin]]
+name = "interlockd"
+path = "src/bin/interlockd/main.rs"
+
+# Hook shim invoked by every harness; std-only, fails open
+[[bin]]
+name = "interlock-hook"
+path = "src/bin/interlock-hook.rs"
 
 [dependencies]
 interlock-core = { path = "../interlock-core" }
 serde.workspace = true
 serde_json.workspace = true
 anyhow.workspace = true
+blake3.workspace = true
 clap = { version = "4", features = ["derive"] }
 ratatui = "0.30"
 crossterm = "0.29"
+tokio = { version = "1", features = ["rt", "net", "io-util", "sync", "time", "macros", "signal"] }
+gix = "0.87"
